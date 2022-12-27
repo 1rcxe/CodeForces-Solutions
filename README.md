@@ -1,2 +1,2 @@
 # CodeForces-Solutions
-my journey in competitive programming
+My Competitive Programming Journey
