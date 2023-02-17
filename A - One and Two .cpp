@@ -13,25 +13,34 @@
         int n ;
         cin >> n ;
         vector<int> a(n);
-        for(auto& i:a) cin >> i;
-        int k = 1 ;
-        int p1=1 , p2=1;
-        for (int i = 0 ; i < n-1 ; i++){
-            p1 = a[i];
-            p2 = a[i+1];
-            for (int j = i-1 ; j >=0 ; j--){
-                p1*=a[j];
+        int p=1;
+        for(auto& i:a){
+        cin >> i;
+        }
+        int c = count(a.begin(),a.end(),2);
+        if (c!=0){
+            if (c%2==1){
+                cout << -1 <<endl;
             }
-            for (int j=i+1 ; j < n-1 ;j++){
-                p2*=a[j+1];
-            }
-            if (p1==p2){
-                cout << i+1<<endl;
-                return;
+            else {
+                c=c/2;
+                int nb = 0 , i =0 ;
+                bool flag = true;
+                while (i<n && flag ){
+                    if (a[i]==2){
+                        nb++;
+                    }
+                    if (nb==c){
+                        flag=false;
+                    }
+                    i++;
+                }
+                cout << i <<endl;
             }
         }
-        cout << -1 <<endl;
-     
+        else{
+            cout << 1 <<endl;
+        }
     }
     int main(){
      
@@ -41,3 +50,4 @@
             solve();
         }
     }
+     
